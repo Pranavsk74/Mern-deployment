@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meridian AI | PE Firm Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">MERIDIAN<span>AI</span></a>
+    <span class="top-note">PRIVATE EQUITY • FIRM DIRECTORY</span>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">INVESTMENT RESEARCH WORKSPACE</p>
+      <h1>Find the right <em>investment</em> partner.</h1>
+      <p class="intro">A simple directory to add, review, update and manage private equity firms.</p>
+      <div class="stats"><div><strong id="firmCount">0</strong><span>Firms listed</span></div><div><strong>CRUD</strong><span>Database operations</span></div><div><strong>MongoDB</strong><span>Data storage</span></div></div>
+    </section>
+    <section class="panel">
+      <div class="section-heading"><div><p class="eyebrow">DIRECTORY</p><h2>Private equity firms</h2></div><button id="resetBtn" class="button secondary" type="button">Clear form</button></div>
+      <form id="firmForm">
+        <input type="hidden" id="firmId" />
+        <div class="form-grid">
+          <label>Firm name *<input id="name" required placeholder="e.g. Meridian Capital Partners" /></label>
+          <label>Sector *<input id="sector" required placeholder="e.g. Technology" /></label>
+          <label>Location *<input id="location" required placeholder="e.g. Mumbai, India" /></label>
+          <label>Investment stage<select id="investmentStage"><option>Growth</option><option>Early-stage</option><option>Buyout</option><option>Distressed</option><option>Other</option></select></label>
+          <label>Investment range<input id="investmentRange" placeholder="e.g. $5M–$25M" /></label>
+          <label>Website<input id="website" type="url" placeholder="https://example.com" /></label>
+          <label class="full">Short description<textarea id="description" rows="2" placeholder="Focus areas, investment thesis, or notes"></textarea></label>
+        </div>
+        <div class="form-actions"><button class="button" id="saveBtn" type="submit">Add firm</button><span id="formMessage" role="status"></span></div>
+      </form>
+    </section>
+    <section class="results">
+      <div class="section-heading"><div><p class="eyebrow">YOUR DATABASE</p><h2>Saved firms</h2></div><button id="refreshBtn" class="button secondary" type="button">Refresh</button></div>
+      <div class="search-row"><input id="search" placeholder="Search name, sector, location or description..." /><button id="searchBtn" class="button" type="button">Search</button></div>
+      <div id="status" class="status">Loading firms…</div>
+      <div id="firmList" class="firm-list"></div>
+    </section>
+    <footer>Meridian AI · Academic CRUD demonstration · Node.js + Express + Mongoose</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
